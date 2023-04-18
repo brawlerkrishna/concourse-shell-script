@@ -15,7 +15,7 @@ jobs:
       inputs: # pass concourse-examples into this task step
       - name: git-concourse-shell-script
       run:
-        path: bash
+        path: sh
         args: [./git-concourse-shell-script/my-task/task.sh]
 
 resources:
