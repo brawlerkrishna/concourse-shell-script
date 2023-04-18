@@ -6,7 +6,17 @@ jobs:
   - get: git-concourse-shell-script
     trigger: true
   - task: run-build
-    file: my-task/task.yml
+    config:
+      platform: linux
+      image_resource:
+        type: registry-image
+        source:
+          repository: busybox
+      inputs: # pass concourse-examples into this task step
+      - name: git-concourse-shell-script
+      run:
+        path: bash
+        args: [./git-concourse-shell-script/my-task/task.sh]
 
 resources:
   - name: git-concourse-shell-script

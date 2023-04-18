@@ -5,8 +5,8 @@ image_resource:
   source: {repository: busybox}
 
 inputs:
-- name: my-task
+- name: git-concourse-shell-script
 
 run:
   path: bash
-  args: [./my-task/task.sh]
+  args: ["git-concourse-shell-script/my-task/task.sh"]
