@@ -1,0 +1,19 @@
+jobs:
+- name: job-build-app
+  public: true
+  serial: true
+  plan:
+  - get: git-concourse-shell-script
+    trigger: true
+  - task: run-build
+    file: my-task/task.yml
+
+resources:
+  - name: git-concourse-shell-script
+    type: git
+    source:
+      uri: https://github.com/brawlerkrishna/concourse-shell-script.git
+      branch: master
+
+
+
